@@ -5,7 +5,7 @@
 This project seeks to document my progress on building a F-16 ICP (Integrated Control Panel) for use in DCS. 
 
 <br>
-My approach relies on using 3 arduino pro micro boards connected via their ic2 allowing for only 1 usb for output rather than 3. There is an oppertunity to use a board with more GPIO like a bluepill board however, with my limited electrical engineering ability it was easier to just use the arduinos.
+My approach relies on using 3 arduino pro micro boards connected via their ic2 allowing for only 1 usb for output rather than 3. There is an oppertunity to use a board with more GPIO like a bluepill board or use a GPIO expander like the mpc23017 however, with my limited electrical engineering ability it was easier to just use the arduinos.
 
 
 <br> 
@@ -18,7 +18,7 @@ A decision was made early on to use solder to connected any switches rather than
 
 
 
-# Requirements
+# Requirements / BOM
 ## Tools 
 - Soldering Iron
 - Solder
@@ -40,4 +40,24 @@ A decision was made early on to use solder to connected any switches rather than
 
 # Steps
 
-To begin after creating the plan I began dissasembling an old keyboard I had to salvage the cherry MX switches, this involved using a desoldering pump to remove any solder.
+To begin after creating the plan I began disassembling an old keyboard I had to salvage the cherry MX switches, this involved using a desoldering pump to remove any solder.
+<br>
+
+To begin actually wiring up the icp I initially wired up the 3 arduinos via to take advantage of the i2c protocol by wiring the SDA, SCL, VCC and Ground pins. 
+After this ran some code to verify the boards were communicating with one another using a button to test if the master board was correctly reading the inputs from the slave board.
+
+<center>
+<img src="Images/i2cWiring.jpeg" width='800' height='400' align='centre'>
+</center>
+
+
+
+<br>
+The code being used to power the ICP is taken from Matthew Heironimus and his work on the ardunio joystick library which I have modified to work with the i2c protocol and 2 other arduios being used as slaves.
+
+
+
+
+
+
+
