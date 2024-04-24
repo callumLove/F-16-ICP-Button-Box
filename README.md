@@ -51,7 +51,7 @@ To begin actually wiring up the icp I initially wired up the 3 arduinos via to t
 After this ran some code to verify the boards were communicating with one another using a button to test if the master board was correctly reading the inputs from the slave board.
 
 <center>
-<img src="Images/i2cWiring.jpeg" width='800' height='400' align='centre'>
+<img src="Images/i2cWiring.jpeg" width='600' height='400' align='centre'>
 </center>
 
 <br>
@@ -60,3 +60,7 @@ The code being used to power the ICP is taken from Matthew Heironimus and his wo
 ## Construction
 
 To begin construction on the ICP the project box was used as the shell of the ICP, initially the SPST and DPST switches were installed as unlike the cherry keys they can be mounted straight into a 12mm circular hole which was cut with a step bit which reduced any melting and provided cleaner cuts.
+
+<center>
+<img src="Images/Box1.jpeg" width='600' height='400' align='centre'>
+</center>
