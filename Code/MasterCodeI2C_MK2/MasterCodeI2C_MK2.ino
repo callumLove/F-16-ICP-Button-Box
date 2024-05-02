@@ -7,10 +7,16 @@ Joystick_ Joystick;
 
 void setup() {
   // Initialize Button Pins
+  pinMode(4, INPUT_PULLUP);
+  pinMode(5, INPUT_PULLUP);
+  pinMode(6, INPUT_PULLUP);
+  pinMode(7, INPUT_PULLUP);
+  pinMode(8, INPUT_PULLUP);
   pinMode(9, INPUT_PULLUP);
   pinMode(10, INPUT_PULLUP);
-  pinMode(11, INPUT_PULLUP);
-  pinMode(12, INPUT_PULLUP);
+  pinMode(14, INPUT_PULLUP);
+  pinMode(15, INPUT_PULLUP);
+  pinMode(16, INPUT_PULLUP);
 
   // Initialize Joystick Library
   Joystick.begin();
@@ -20,16 +26,18 @@ void setup() {
 }
 
 // Constant that maps the physical pin to the joystick button.
-const int pinToButtonMap = 9;
+const int pinToButtonMap[] = {4, 5, 6, 7, 8, 9, 10, 14, 15, 16};
 
 // Last state of the button
-int lastButtonState[4] = {0, 0, 0, 0};
+int lastButtonState[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 void loop() {
   // Read local button inputs
-  for (int index = 0; index < 4; index++) {
-    int currentButtonState = !digitalRead(index + pinToButtonMap);
-    if (currentButtonState != lastButtonState[index]) {
+  for (int index = 0; index < sizeof(pinToButtonMap) / sizeof(pinToButtonMap[0]); index++)
+  {
+    int currentButtonState = !digitalRead(pinToButtonMap[index]);
+    if (currentButtonState != lastButtonState[index]) 
+    {
       Joystick.setButton(index, currentButtonState);
       lastButtonState[index] = currentButtonState;
     }
@@ -42,15 +50,11 @@ void loop() {
   for (int index = 0; index < 4; index++) {
     if (Wire.available()) {
       int buttonState = Wire.read();
-      Joystick.setButton(index + 3, buttonState); // Offset button index to avoid conflicts with local buttons
+      Joystick.setButton(index + 10, buttonState); // Offset button index to avoid conflicts with local buttons
     }
   }
 
-  // Read and update joystick axes (if needed)
-  // int x = analogRead(A0);
-  // int y = analogRead(A1);
-  // Joystick.setXAxis(x);
-  // Joystick.setYAxis(y);
+
 
   delay(50); // Adjust delay as needed
 }
