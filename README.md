@@ -58,6 +58,12 @@ After this ran some code to verify the boards were communicating with one anothe
 The code being used to power the ICP is taken from Matthew Heironimus and his work on the ardunio joystick library which I have modified to work with the i2c protocol and 2 other arduios being used as slaves.
 
 ## Construction
+Before construction began the initial design had to change, if a box was mounted vertically it would likely prevent me from seeing the bottom of the monitor behind it, for this reason the box was changed so that it would now sit horizontally and a few buttons had to be removed due to the internal constuction of the box having less area that the outside.
+
+### Re-Design
+<center>
+<img src="Images/ScaleF16.jpg" width='600' height='350' align='centre'>
+</center>
 
 To begin construction on the ICP the project box was used as the shell of the ICP, initially the SPST and DPST switches were installed as unlike the cherry keys they can be mounted straight into a 12mm circular hole which was cut with a step bit which reduced any melting and provided cleaner cuts.
 
@@ -69,7 +75,7 @@ The same was repeated for the momentary switches, however, the cherry keys prove
 
 
 <center>
-<img src='Images\BoxWithCuttings.JPEG'>
+<img src='Images\BoxWithCuttings.JPEG' width='600' height='350' align='centre'>
 </center>
 
 ## Wiring
@@ -79,5 +85,5 @@ I began with wiring the SPST and DPST switches first, these were just screwed on
 After this the momentary switches had to be wired, since most of the pins on the first ardunio were now taken up by the SPST and DPST. There were fairly simple to solder and by this point my soldering skills had improved enough however this highlighted to me that the code I had previously written for both the master and slave board didn't work, it created ghost inputs and wasn't recognising button presses so a rewrite was in order.
 
 <center>
-<img src='Images\boxWiring.JPEG'>
+<img src='Images\boxWiring.JPEG' width='600' height='400' align='centre'>
 </center>
