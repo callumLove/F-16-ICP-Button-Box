@@ -64,3 +64,20 @@ To begin construction on the ICP the project box was used as the shell of the IC
 <center>
 <img src="Images/Box1.jpeg" width='600' height='400' align='centre'>
 </center>
+
+The same was repeated for the momentary switches, however, the cherry keys proved to be alot more difficult. The best method I found for install the cherry keys into the box was to begin with drilling out tiny holes in the shape of the key and then melt the plastic out with the soldering iron. The cuts produced by this were far from clean however It was the only method I had available wihtout additional tooling.
+
+
+<center>
+<img src='Images\BoxWithCuttings.JPEG'>
+</center>
+
+## Wiring
+
+I began with wiring the SPST and DPST switches first, these were just screwed onto the terminals of the switches and were soldered to the digital pins on the arudino, there was alot of experimenting and testing with this as the initial code proved to be buggy and my soldering was bad enough to cross digital pins.
+
+After this the momentary switches had to be wired, since most of the pins on the first ardunio were now taken up by the SPST and DPST. There were fairly simple to solder and by this point my soldering skills had improved enough however this highlighted to me that the code I had previously written for both the master and slave board didn't work, it created ghost inputs and wasn't recognising button presses so a rewrite was in order.
+
+<center>
+<img src='Images\boxWiring.JPEG'>
+</center>
