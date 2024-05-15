@@ -44,10 +44,10 @@ void loop() {
   }
 
   // Read button states from the slave Arduino
-  Wire.requestFrom(SLAVE_ADDRESS, 4); // Request 4 bytes (button states)
+  Wire.requestFrom(SLAVE_ADDRESS, 7); // Request 4 bytes (button states)
 
   // Update joystick buttons with received button states from slave
-  for (int index = 0; index < 4; index++) {
+  for (int index = 0; index < 7; index++) {
     if (Wire.available()) {
       int buttonState = Wire.read();
       Joystick.setButton(index + 10, buttonState); // Offset button index to avoid conflicts with local buttons
@@ -56,5 +56,5 @@ void loop() {
 
 
 
-  delay(50); // Adjust delay as needed
+  delay(0); // Adjust delay as needed
 }
